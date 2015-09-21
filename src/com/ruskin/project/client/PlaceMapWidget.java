@@ -1,20 +1,6 @@
 package com.ruskin.project.client;
 
-import org.gwtopenmaps.openlayers.client.Bounds;
-import org.gwtopenmaps.openlayers.client.LonLat;
-import org.gwtopenmaps.openlayers.client.Map;
-import org.gwtopenmaps.openlayers.client.MapOptions;
-import org.gwtopenmaps.openlayers.client.MapWidget;
-import org.gwtopenmaps.openlayers.client.Size;
-import org.gwtopenmaps.openlayers.client.control.SelectFeature;
-import org.gwtopenmaps.openlayers.client.control.SelectFeatureOptions;
-import org.gwtopenmaps.openlayers.client.event.MapClickListener;
-import org.gwtopenmaps.openlayers.client.event.VectorFeatureSelectedListener;
-import org.gwtopenmaps.openlayers.client.layer.Layer;
-import org.gwtopenmaps.openlayers.client.layer.Vector;
-
 import com.google.gwt.user.client.ui.CheckBox;
-import com.google.gwt.user.client.ui.DecoratorPanel;
 import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.IsWidget;
 import com.google.gwt.user.client.ui.Label;
@@ -33,11 +19,12 @@ public class PlaceMapWidget implements IsWidget {
 
 	private final MainWidget master;	
 	private final VerticalPanel decorator;
-
 	public PlaceMapWidget(int width, int height, MainWidget master) {		
 		this.master = master;
+		
 		decorator = new VerticalPanel();
 		decorator.setStyleName("mapDecorator");
+		
 		Label mapLbl = new Label("The Map Widget Will Go Here");
 		Label mapHolderLbl = new Label("The Map will be placed here");
 		mapLbl.setStyleName("flexTableCellHead");

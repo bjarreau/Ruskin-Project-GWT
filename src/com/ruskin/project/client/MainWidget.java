@@ -51,9 +51,9 @@ public class MainWidget implements IsWidget {
 	
 	}
 
-//	public final PlaceMapWidget getMap() {
-//		return placesMap;
-//	}
+	public final PlaceMapWidget getMap() {
+		return placesMap;
+	}
 	
 	public TimeWidget getTimeWidget() {
 		return timePanel;
