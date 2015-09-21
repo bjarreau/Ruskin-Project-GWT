@@ -1,5 +1,8 @@
 package com.ruskin.project.client;
 
+import org.gwtopenmaps.openlayers.client.MapOptions;
+import org.gwtopenmaps.openlayers.client.MapWidget;
+
 import com.google.gwt.user.client.ui.CheckBox;
 import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.IsWidget;
@@ -19,23 +22,27 @@ public class PlaceMapWidget implements IsWidget {
 
 	private final MainWidget master;	
 	private final VerticalPanel decorator;
+	private final MapOptions options;
+	private final MapWidget mapWidget;
+	
 	public PlaceMapWidget(int width, int height, MainWidget master) {		
 		this.master = master;
+		options = new MapOptions ();
+		options.setNumZoomLevels(30);
+		mapWidget = new MapWidget(new Integer(width).toString(), new Integer(height).toString(), options);
 		
 		decorator = new VerticalPanel();
 		decorator.setStyleName("mapDecorator");
 		
 		Label mapLbl = new Label("The Map Widget Will Go Here");
-		Label mapHolderLbl = new Label("The Map will be placed here");
 		mapLbl.setStyleName("flexTableCellHead");
 		HorizontalPanel mapPlaceHolder = new HorizontalPanel();
-		mapPlaceHolder.add(mapHolderLbl);
-		mapPlaceHolder.setSize("1000px", "450px");
 		mapPlaceHolder.setStyleName("flexTableCell");
+		mapPlaceHolder.add(mapWidget);	
 		decorator.add(mapLbl);
 		decorator.add(mapPlaceHolder);
+		
 		BuildUI();
-			
 	}	
 	
 	private void BuildUI() {
